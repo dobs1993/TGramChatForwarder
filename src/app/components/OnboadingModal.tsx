@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Shield, Check } from 'lucide-react';
 
 export default function OnboardingModal() {
   const [show, setShow] = useState(false);
@@ -24,34 +25,58 @@ export default function OnboardingModal() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl p-6 max-w-sm w-full shadow-md text-center">
-        <h2 className="text-lg font-bold mb-2">👋 Welcome to TelegramTools</h2>
-        <p className="text-sm text-gray-600 mb-4">
-          We need permission to access your Telegram account to forward messages.
-        </p>
-        <ul className="text-sm text-left text-gray-500 list-disc list-inside mb-4 space-y-1">
-          <li>We do NOT store your messages.</li>
-          <li>We do NOT save private data.</li>
-          <li>You remain in full control.</li>
-        </ul>
-        <div className="flex items-center mb-4">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="tg-card p-6 max-w-sm w-full shadow-lg animated fadeInUp">
+        <div className="text-center mb-6">
+          <div className="bg-[var(--telegram-primary)]/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <Shield className="h-8 w-8 text-[var(--telegram-primary)]" />
+          </div>
+          
+          <h2 className="text-xl font-bold mb-2 text-[var(--telegram-primary)]">
+            Welcome to Telegram Forwarder
+          </h2>
+          
+          <p className="text-sm text-[var(--telegram-text-secondary)]">
+            Securely connect your Telegram account to manage message forwarding
+          </p>
+        </div>
+        
+        <div className="bg-[var(--telegram-primary)]/5 p-4 rounded-lg mb-5">
+          <h3 className="font-medium text-sm mb-2">Our Privacy Commitments:</h3>
+          <ul className="text-sm space-y-2">
+            <li className="flex items-start">
+              <Check size={16} className="text-[var(--telegram-primary)] mt-0.5 mr-2 flex-shrink-0" />
+              <span>We never store or read your message content</span>
+            </li>
+            <li className="flex items-start">
+              <Check size={16} className="text-[var(--telegram-primary)] mt-0.5 mr-2 flex-shrink-0" />
+              <span>Your authentication data is securely stored</span>
+            </li>
+            <li className="flex items-start">
+              <Check size={16} className="text-[var(--telegram-primary)] mt-0.5 mr-2 flex-shrink-0" />
+              <span>You can revoke access at any time</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div className="flex items-center mb-5">
           <input
             type="checkbox"
             id="dontShowAgain"
             checked={dontShowAgain}
             onChange={() => setDontShowAgain(!dontShowAgain)}
-            className="mr-2"
+            className="mr-2 h-4 w-4 accent-[var(--telegram-primary)]"
           />
-          <label htmlFor="dontShowAgain" className="text-sm text-gray-600">
-            Don't show again
+          <label htmlFor="dontShowAgain" className="text-sm text-[var(--telegram-text-secondary)]">
+            Don't show this message again
           </label>
         </div>
+        
         <button
           onClick={handleContinue}
-          className="bg-[#0088cc] hover:bg-[#0075b4] text-white px-4 py-2 rounded-full transition"
+          className="tg-button w-full"
         >
-          Continue
+          Get Started
         </button>
       </div>
     </div>

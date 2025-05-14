@@ -1,0 +1,52 @@
+2025-05-14 00:26:42,280 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-05-14 00:26:42,280 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 00:28:04,877 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:28:04] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:28:11,970 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:28:11] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:28:13,788 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:28:13] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:36:18,892 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:36:18] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:36:32,689 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-05-14 00:36:32,691 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 00:36:37,828 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:36:37] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:38:48,854 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:38:48] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:38:51,503 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:38:51] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:39:00,560 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:39:00] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:41:50,795 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:41:50] "[33mGET /ping HTTP/1.1[0m" 404 -
+2025-05-14 00:42:07,134 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.225:5001
+2025-05-14 00:42:07,135 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 00:42:26,511 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:26] "GET /ping HTTP/1.1" 200 -
+2025-05-14 00:42:34,888 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:34] "GET /ping HTTP/1.1" 200 -
+2025-05-14 00:42:35,205 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:35] "OPTIONS /send-code HTTP/1.1" 200 -
+2025-05-14 00:42:35,466 - telegram_auth_api - INFO - Received code request for: +1****56
+2025-05-14 00:42:35,547 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-05-14 00:42:37,114 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-05-14 00:42:38,043 - telethon.client.users - INFO - Phone migrated to 1
+2025-05-14 00:42:38,044 - telethon.client.telegrambaseclient - INFO - Reconnecting to new data center 1
+2025-05-14 00:42:38,184 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-05-14 00:42:38,186 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-05-14 00:42:38,186 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.51:443/TcpFull...
+2025-05-14 00:42:40,577 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.51:443/TcpFull complete!
+2025-05-14 00:42:41,097 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.175.51:443/TcpFull...
+2025-05-14 00:42:41,098 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.175.51:443/TcpFull complete!
+2025-05-14 00:42:41,111 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:41] "POST /send-code HTTP/1.1" 200 -
+2025-05-14 00:42:52,858 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:52] "OPTIONS /verify-code HTTP/1.1" 200 -
+2025-05-14 00:42:53,173 - telegram_auth_api - INFO - Verifying code for: +1****56
+2025-05-14 00:42:53,182 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.51:443/TcpFull...
+2025-05-14 00:42:53,257 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.51:443/TcpFull complete!
+2025-05-14 00:42:54,044 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:54] "POST /verify-code HTTP/1.1" 200 -
+2025-05-14 00:42:54,656 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:54] "OPTIONS /get-links HTTP/1.1" 200 -
+2025-05-14 00:42:54,657 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:42:54] "OPTIONS /get-links HTTP/1.1" 200 -
+2025-05-14 00:42:54,916 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.51:443/TcpFull...
+2025-05-14 00:42:54,966 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.51:443/TcpFull...
+2025-05-14 00:42:54,993 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.51:443/TcpFull complete!
+2025-05-14 00:42:55,058 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.51:443/TcpFull complete!
+2025-05-14 00:43:00,288 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:43:00] "[35m[1mPOST /get-links HTTP/1.1[0m" 500 -
+2025-05-14 00:43:00,317 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:43:00] "[35m[1mPOST /get-links HTTP/1.1[0m" 500 -
+2025-05-14 00:46:09,858 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:46:09] "OPTIONS /get-links HTTP/1.1" 200 -
+2025-05-14 00:46:10,117 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.51:443/TcpFull...
+2025-05-14 00:46:10,195 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.51:443/TcpFull complete!
+2025-05-14 00:46:15,652 - werkzeug - INFO - 127.0.0.1 - - [14/May/2025 00:46:15] "[35m[1mPOST /get-links HTTP/1.1[0m" 500 -

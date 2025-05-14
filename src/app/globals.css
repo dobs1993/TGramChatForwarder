@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Telegram brand colors */
+  --telegram-primary: #0088CC;
+  --telegram-secondary: #179CDE;
+  --telegram-accent: #38B0E3;
+  --telegram-dark: #212D3B;
+  --telegram-light-bg: #F5F5F5;
+  --telegram-text-primary: #000000;
+  --telegram-text-secondary: #8E8E92;
+
+  /* Gradient and effects */
+  --telegram-gradient: linear-gradient(180deg, #38B0E3 0%, #0088CC 100%);
+  --telegram-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 136, 204, 0.12);
+  --telegram-transition: all 0.2s ease-in-out;
+  --telegram-border-radius: 10px;
+  
+  /* Base theme variables */
+  --background: var(--telegram-light-bg);
+  --foreground: var(--telegram-text-primary);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', 'San Francisco Pro', 'Roboto', -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--telegram-dark);
+    --foreground: #FFFFFF;
+    --telegram-text-secondary: #A8B8C9;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'San Francisco Pro', 'Roboto', -apple-system, sans-serif;
+}
+
+/* Telegram-styled components */
+
+/* Buttons */
+.tg-button {
+  @apply font-medium transition-all;
+  background-color: var(--telegram-primary);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 16px;
+  box-shadow: var(--telegram-shadow);
+}
+
+.tg-button:hover {
+  background-color: var(--telegram-secondary);
+}
+
+/* Cards */
+.tg-card {
+  @apply rounded-xl shadow-sm border border-[#f0f0f0] hover:shadow-md transition-all duration-200 bg-white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tg-card {
+    @apply bg-[#2C3947] border-[#37475B];
+  }
+}
+
+/* Form elements */
+.tg-input {
+  @apply border border-[#d9d9d9] focus:border-[#38B0E3] focus:ring-1 focus:ring-[#38B0E3] rounded-lg px-4 py-2.5 outline-none transition-all w-full;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tg-input {
+    @apply bg-[#2C3947] border-[#37475B] text-white;
+  }
+}
+
+/* Navigation */
+.tg-nav {
+  @apply bg-[#212D3B] text-white border-t border-[#37475B] fixed bottom-0 left-0 right-0 flex justify-around py-2 z-50;
+}
+
+.tg-nav-item {
+  @apply flex flex-col items-center text-sm transition cursor-pointer;
+}
+
+.tg-nav-item-active {
+  @apply text-[#38B0E3] font-medium;
+}
+
+.tg-nav-item-inactive {
+  @apply text-white;
+}
+
+/* Link item styles */
+.tg-link-item {
+  @apply bg-gradient-to-r from-[#38B0E3]/10 to-[#0088CC]/10 text-[#0088CC] rounded-md font-medium flex items-center justify-center space-x-2 p-3 transition-all hover:from-[#38B0E3]/20 hover:to-[#0088CC]/20;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tg-link-item {
+    @apply bg-gradient-to-r from-[#38B0E3]/20 to-[#0088CC]/20 text-[#38B0E3];
+  }
 }

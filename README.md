@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Telegram Chat Forwarder
 
-## Getting Started
+A secure, privacy-focused application for managing Telegram message forwarding between chats, channels, and groups.
 
-First, run the development server:
+![Telegram Forwarder](https://telegram.org/img/t_logo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Connect your Telegram account** securely using Telegram's official authentication process
+- **Forward messages** between any chats you have access to
+- **Manage active links** to monitor and delete forwarding rules
+- **Filter messages** based on content patterns (Premium feature)
+- **Privacy-first design** - your messages are never stored or read
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- Node.js (v18 or higher)
+- Python 3.7+
+- Telegram API credentials (API ID and API Hash)
 
-To learn more about Next.js, take a look at the following resources:
+### Backend Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Install dependencies:
+   ```bash
+   cd telegramforwarder_backend
+   pip install -r requirements.txt
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Create a `.env` file with your Telegram API credentials:
+   ```
+   TG_API_ID=your_api_id
+   TG_API_HASH=your_api_hash
+   ```
 
-## Deploy on Vercel
+3. Run the backend server:
+   ```bash
+   python main.py
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. In a separate terminal, run the message forwarder:
+   ```bash
+   python forwarder_runner.py
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## How It Works
+
+1. **Authentication**: Connect your Telegram account using your phone number and verification code
+2. **Create Links**: Set up forwarding rules between source and destination chats
+3. **Message Forwarding**: The forwarder service monitors your connected chats and automatically forwards messages according to your rules
+4. **Manage Links**: View and delete active forwarding rules as needed
+
+## Privacy & Security
+
+- We do not store the content of your messages
+- Session data is stored locally on your device
+- All communication with the Telegram API is done using the official Telethon library
+- Data transmission between frontend and backend is secured
+
+## Development
+
+- Frontend: Next.js 15 / React 19 with Tailwind CSS
+- Backend: Python Flask with Telethon library
+- Storage: Local JSON files for forwarding rules
+
+## Disclaimer
+
+This tool is for personal use only. Please respect Telegram's Terms of Service and do not use this tool to spam or otherwise abuse Telegram's platform.
+
+## License
+
+MIT License

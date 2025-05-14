@@ -4,6 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function VerifyCodePage() {
   const router = useRouter();
@@ -30,57 +31,92 @@ export default function VerifyCodePage() {
       const res = await fetch('http://localhost:5001/verify-code', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ phone, code }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        // ✅ Set cookie instead of localStorage so middleware can access it
+        // Set cookie instead of localStorage so middleware can access it
         document.cookie = "telegramVerified=true; path=/";
         router.push('/dashboard-links');
       } else {
         setError(data.error || 'An unexpected error occurred.');
       }
     } catch (err) {
-      setError((err as Error).message || 'Network error');
+      console.error('Verification error:', err);
+      setError('Network error - Please check if the backend server is running');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 bg-gray-100">
-      <div className="bg-white rounded-2xl shadow p-6 w-full max-w-md text-center">
-        <h1 className="text-xl font-bold mb-4 text-gray-800">🔐 Enter Login Code</h1>
-        <form onSubmit={handleVerify} className="space-y-4">
-          <input
-            type="text"
-            value={phone}
-            disabled
-            className="w-full border rounded px-4 py-2 text-lg bg-gray-100 text-gray-500"
-          />
-          <input
-            type="text"
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            placeholder="Verification code"
-            className="w-full border rounded px-4 py-2 text-lg"
-            required
-          />
+    <div className="p-2">
+      <div className="tg-card p-6 space-y-6">
+        <div className="text-center mb-2">
+          <div className="bg-[var(--telegram-primary)]/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <ShieldCheck className="h-8 w-8 text-[var(--telegram-primary)]" />
+          </div>
+          
+          <h1 className="text-xl font-bold mb-3 text-[var(--telegram-primary)]">
+            Verification Code
+          </h1>
+          
+          <p className="text-sm text-[var(--telegram-text-secondary)]">
+            Enter the code sent to your Telegram account
+          </p>
+        </div>
+
+        <form onSubmit={handleVerify} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium mb-1 text-[var(--telegram-text-secondary)]">
+              Phone Number
+            </label>
+            <input
+              type="text"
+              value={phone}
+              disabled
+              className="tg-input bg-gray-100/50 text-[var(--telegram-text-secondary)]"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1 text-[var(--telegram-text-secondary)]">
+              Verification Code
+            </label>
+            <input
+              type="text"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              placeholder="Enter code"
+              className="tg-input"
+              required
+            />
+            <p className="text-xs text-[var(--telegram-text-secondary)] mt-1">
+              Check Telegram for your verification code
+            </p>
+          </div>
+          
           <button
             type="submit"
-            className={`w-full py-2 rounded-full text-white font-semibold transition ${
-              loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
+            className={`tg-button w-full flex items-center justify-center ${
+              loading ? 'opacity-70 cursor-not-allowed' : ''
             }`}
             disabled={loading}
           >
-            {loading ? 'Verifying...' : 'Verify Code'}
+            <span>{loading ? 'Verifying...' : 'Verify & Continue'}</span>
+            {!loading && <ArrowRight size={16} className="ml-2" />}
           </button>
         </form>
 
-        {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+        {error && (
+          <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm">
+            {error}
+          </div>
+        )}
       </div>
-    </main>
+    </div>
   );
 }
